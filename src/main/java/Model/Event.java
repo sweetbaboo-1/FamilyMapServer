@@ -1,17 +1,48 @@
 package Model;
 
+import java.util.Objects;
+
 /**
  * An object used to represent an event associated with a person
  */
 public class Event {
+    /**
+     * The unique event ID
+     */
     private String eventID;
+    /**
+     * The username of the person associated with this event
+     */
     private String associatedUsername;
+    /**
+     * The ID of the person associated with this event
+     */
     private String personID;
+    /**
+     * The latitude of where the event took place
+     */
     private float latitude;
+    /**
+     * The longitude of where the event took place
+     */
     private float longitude;
+    /**
+     * The country where the event took place
+     */
     private String country;
+    /**
+     * The city where the event took place
+     */
     private String city;
+
+    /**
+     * The type of the event
+     */
     private String eventType;
+
+    /**
+     * The year that the event took place
+     */
     private int year;
 
 
@@ -109,5 +140,28 @@ public class Event {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return Objects.equals(eventID, event.eventID) && Objects.equals(associatedUsername, event.associatedUsername) && Objects.equals(personID, event.personID) && Objects.equals(latitude, event.latitude) && Objects.equals(longitude, event.longitude) && Objects.equals(country, event.country) && Objects.equals(city, event.city) && Objects.equals(eventType, event.eventType) && Objects.equals(year, event.year);
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventID='" + eventID + '\'' +
+                ", associatedUsername='" + associatedUsername + '\'' +
+                ", personID='" + personID + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", eventType='" + eventType + '\'' +
+                ", year=" + year +
+                '}';
     }
 }

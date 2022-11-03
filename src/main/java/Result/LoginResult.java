@@ -10,7 +10,9 @@ public class LoginResult {
     private String authtoken;
     private String username;
     private String personID;
+    private String msg;
     private  boolean success;
+
 
     /**
      * Constructor
@@ -19,11 +21,16 @@ public class LoginResult {
      * @param personID the personID of the user
      * @param success if the login attempt succeeded or failed
      */
-    public LoginResult(String authtoken, String username, String personID, boolean success) {
+    public LoginResult(String authtoken, String username, String personID, String msg, boolean success) {
         this.authtoken = authtoken;
         this.username = username;
         this.personID = personID;
         this.success = success;
+        this.msg = msg;
+    }
+
+    public String getMsg() {
+        return msg;
     }
 
     public String getAuthtoken() {

@@ -1,10 +1,15 @@
 package Model;
 
+import java.util.Objects;
+
 /**
  * A object used to represent a person
  */
 public class Person {
-    private String perosnID;
+    /**
+     * The
+     */
+    private String personID;
     private String associatedUsername;
     private String firstName;
     private String lastName;
@@ -15,7 +20,7 @@ public class Person {
 
     /**
      * Constructor
-     * @param perosnID the ID of this person
+     * @param personID the ID of this person
      * @param associatedUsername the username of the person
      * @param firstName the first name of this person
      * @param lastName the last name of this person
@@ -25,8 +30,8 @@ public class Person {
      * @param spouseID the ID of this person's spouse (can be null)
      */
 
-    public Person(String perosnID, String associatedUsername, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
-        this.perosnID = perosnID;
+    public Person(String personID, String associatedUsername, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID) {
+        this.personID = personID;
         this.associatedUsername = associatedUsername;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,12 +41,12 @@ public class Person {
         this.spouseID = spouseID;
     }
 
-    public String getPerosnID() {
-        return perosnID;
+    public String getPersonID() {
+        return personID;
     }
 
-    public void setPerosnID(String perosnID) {
-        this.perosnID = perosnID;
+    public void setPersonID(String personID) {
+        this.personID = personID;
     }
 
     public String getAssociatedUsername() {
@@ -98,5 +103,33 @@ public class Person {
 
     public void setSpouseID(String spouseID) {
         this.spouseID = spouseID;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return  Objects.equals(personID, person.personID) &&
+                Objects.equals(associatedUsername, person.associatedUsername) &&
+                Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName) &&
+                Objects.equals(gender, person.gender) &&
+                Objects.equals(fatherID, person.fatherID) &&
+                Objects.equals(motherID, person.motherID) &&
+                Objects.equals(spouseID, person.spouseID);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personID='" + personID + '\'' +
+                ", associatedUsername='" + associatedUsername + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", fatherID='" + fatherID + '\'' +
+                ", motherID='" + motherID + '\'' +
+                ", spouseID='" + spouseID + '\'' +
+                '}';
     }
 }

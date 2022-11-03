@@ -6,14 +6,27 @@ import Result.LoginResult;
  * An object that handles user login requests
  */
 public class LoginRequest {
+    public String username;
+    public String password;
 
-    /**
-     * Method to attempt to log in to the server
-     * @param username the username of the person trying to log in to the server
-     * @param password the password of the person trying to log in to the server
-     * @return LoginResult indicating if the result was successful
-     */
-    public LoginResult makeLoginRequest(String username, String password) {
-        return null;
-    };
+    public LoginRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
